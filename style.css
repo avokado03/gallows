@@ -1,0 +1,49 @@
+/*
+font-family: 'Caveat', cursive;
+font-family: 'Pacifico', cursive;
+*/
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    background-image: url("images/back.png") ;
+}
+/*div,p{
+    border: 1px solid brown;
+    margin: 0;
+}*/
+#main{
+    display: grid;
+    grid-template-rows: 0.5fr 1.8fr 1fr;
+    align-items: center;
+}
+#main *{
+    text-align: center;
+}
+p{
+    font-size: 2em;
+    font-family: 'Pacifico', cursive;
+    color: #3f0088;
+    margin: 0;
+    padding: 0;
+}
+form{
+    display: block;
+}
+input{
+    width: 20em;
+    font: 1.7em 'Caveat', cursive;
+    margin-top: 0.1em;
+    background-color: rgba(255,255,255,0.5);
+    border: 0.09em solid #3f0088;
+}
+button{
+    margin: 1em;
+    background-color: rgba(255,255,255,0.5);
+    border: 0.1em solid #3f0088;
+    border-radius: 1em;
+    font-family: 'Caveat', cursive;
+    font-size: 1.7em;
+    color: #3f0088;
+}
