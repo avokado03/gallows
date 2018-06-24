@@ -14,12 +14,10 @@
             
         </div>
         <div id="content">
-            <form method="post" action="">
                 <p>Введите свое имя :</p>
                 <input id="name" type="text" title=""><br>
                 <button id="start">Старт</button>
                 <button id="reset">Очистить</button>
-            </form>
         </div>
     </div>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>

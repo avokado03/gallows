@@ -47,6 +47,7 @@ button{
     color: #3f0088;
 }
 .alph{
+    cursor: pointer;
     color: #3f0088;
     border: 0.09em solid #3f0088;
     border-radius:1em;
@@ -54,11 +55,22 @@ button{
     font-size: 2em;
     background-color: rgba(255,255,255,0.5);
 }
+#game{
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
 #word{
-    width: 400px;
-    height: 400px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 #image{
     background-image: url("images/fullHuman.png");
-    border: 1px solid violet;
+    background-size: cover;
+    margin-left: 2em;
+    min-width: 200px;
+    min-height: 200px;
+    width: 300px;
+    height: 300px;
 }
