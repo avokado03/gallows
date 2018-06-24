@@ -8,20 +8,20 @@
           rel="stylesheet">
 </head>
 <body>
-<div id="main">
-    <p>Виселица</p>
-    <img id="hangman" src="">
-    <div id="words">
-    <div id="content">
-        <form method="post" action="">
-            <p>Введите свое имя :</p>
-            <input id="name" type="text" title=""><br>
-            <button id="start">Старт</button>
-            <button id="reset">Очистить</button>
-        </form>
+    <div id="main">
+        <p id="head">Виселица</p>
+        <div id="game">
+            
+        </div>
+        <div id="content">
+            <form method="post" action="">
+                <p>Введите свое имя :</p>
+                <input id="name" type="text" title=""><br>
+                <button id="start">Старт</button>
+                <button id="reset">Очистить</button>
+            </form>
+        </div>
     </div>
-    </div>
-</div>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/js.js"></script>
 </body>
