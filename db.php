@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hz
- * Date: 23.06.2018
- * Time: 17:10
- */
+try{
+    $connection = new PDO('mysql:host=localhost;dbname=hangman','root','');
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $ex){
+    echo "Не удалось подключиться к базе данных";
+    echo $ex->getMessage();
+}
+
