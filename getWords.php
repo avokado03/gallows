@@ -21,7 +21,7 @@ try{
     $arrJson=[$categoryResult,$wordResult];
     echo json_encode($arrJson);
 }
-catch (PDOException $ex){
+catch (PDOException $ex) {
     echo "Не удалось выполнить запросы!";
     echo $ex->getMessage();
 }
