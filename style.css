@@ -7,12 +7,8 @@ body{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     margin: 0;
-    background-image: url("images/back.png") ;
+    background-image: url(images/back.png);
 }
-/*div,p{
-    border: 1px solid brown;
-    margin: 0;
-}*/
 #main{
     display: grid;
     grid-template-rows: 0.5fr 1.8fr 1fr;
@@ -27,6 +23,9 @@ p{
     color: #3f0088;
     margin: 0;
     padding: 0;
+}
+#head{
+    font-size: 3.8em;
 }
 form{
     display: block;
@@ -54,4 +53,12 @@ button{
     font-family: 'Caveat', cursive;
     font-size: 2em;
     background-color: rgba(255,255,255,0.5);
+}
+#word{
+    width: 400px;
+    height: 400px;
+}
+#image{
+    background-image: url("images/fullHuman.png");
+    border: 1px solid violet;
 }
