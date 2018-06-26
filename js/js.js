@@ -9,14 +9,18 @@ $('#reset').click(function () {
 //старт игры
 $('#start').click(function () {
     var name = $('input').val();
+    var counter=0;
+
     if (name!=""){
     $.post('getWords.php',{'name':name},function (data){
         $('body').css('background', 'url(images/backClean.png)');
-        var alph = "абвгдежзиклмнопрстуфхцчшщъыьэюя";
+        var alph = "абвгдежзиклмнопрстуфхцчшщъыьэюя".split('');
         var alphDiv="";
         var alphCurrent;
+        var word = "";
         var game=$('#game');
         var content = $("#content");
+        var letters=null;
         var appendToGame=
             '<div id="image"></div>' +
             '<div id="word">' +
@@ -24,10 +28,11 @@ $('#start').click(function () {
             '<div id="category"></div>'+
             '<div id="mistakes"></div>'+
             '</div>';
+
         content.empty();
-        for (var i in alph){
-            alphDiv += '<div class="alph">' + alph[i] + '</div>';
-        }
+        alph.forEach(function (item) {
+            alphDiv += '<div class="alph">' + item + '</div>';
+        });
         content.append(alphDiv);
         content.css({
             'padding':'1em',
@@ -36,12 +41,24 @@ $('#start').click(function () {
             'grid-template-rows':'1fr 1fr 1fr',
             'grid-gap': '0.4em 1.5em'
         });
+
         alphCurrent=$('.alph');
         alphCurrent.one('click',function () {
             $(this).fadeTo(500,0.4);
         });
         game.append(appendToGame);
-    });
+
+        var wordBlock=$('#wordBlock');
+        word=data[1].words_value.split('');
+        alert(word);
+        word.forEach(function (item) {
+            letters+= '<div class="letters">'+item+'</div>';
+        });
+        wordBlock.append(letters);
+        wordBlock.css('grid-template-columns','repeat('+word.length+', 1fr)');
+        $('#category').text('Категория: '+data[0].categories_name);
+        $('#mistakes').text('Ошибок: '+counter);
+    },'json');
     }
     else {
         alert("Введите имя!");
