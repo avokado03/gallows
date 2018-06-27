@@ -82,5 +82,7 @@ button{
     align-items: center;
 }
 .letters{
-    font: 1em 'Caveat', cursive;
+    font-size: 2em;
+    font-family: 'Caveat', cursive;
+    opacity: 0;
 }

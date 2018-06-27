@@ -9,7 +9,7 @@ $('#reset').click(function () {
 //старт игры
 $('#start').click(function () {
     var name = $('input').val();
-    var counter=0;
+    var mistakes=0;
 
     if (name!=""){
     $.post('getWords.php',{'name':name},function (data){
@@ -20,7 +20,7 @@ $('#start').click(function () {
         var word = "";
         var game=$('#game');
         var content = $("#content");
-        var letters=null;
+        var letters="";
         var appendToGame=
             '<div id="image"></div>' +
             '<div id="word">' +
@@ -44,20 +44,28 @@ $('#start').click(function () {
 
         alphCurrent=$('.alph');
         alphCurrent.one('click',function () {
+            var chosenLetter = this.innerText;
+
+            $('.letters').forEach(function (item) {
+                if(chosenLetter===item.innerText){
+                    item.css('opacity','100%');
+                }
+            });
             $(this).fadeTo(500,0.4);
         });
         game.append(appendToGame);
 
         var wordBlock=$('#wordBlock');
+        var wordLenght=word.length;
         word=data[1].words_value.split('');
-        alert(word);
         word.forEach(function (item) {
             letters+= '<div class="letters">'+item+'</div>';
         });
         wordBlock.append(letters);
-        wordBlock.css('grid-template-columns','repeat('+word.length+', 1fr)');
+        wordBlock.css('grid-template-columns','repeat('+wordLenght+', 1fr)');
         $('#category').text('Категория: '+data[0].categories_name);
         $('#mistakes').text('Ошибок: '+counter);
+
     },'json');
     }
     else {
