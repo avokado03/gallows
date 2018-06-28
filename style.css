@@ -46,15 +46,6 @@ button{
     font-size: 1.7em;
     color: #3f0088;
 }
-.alph{
-    cursor: pointer;
-    color: #3f0088;
-    border: 0.09em solid #3f0088;
-    border-radius:1em;
-    font-family: 'Caveat', cursive;
-    font-size: 2em;
-    background-color: rgba(255,255,255,0.5);
-}
 #game{
     margin: 0;
     display: grid;
@@ -74,15 +65,24 @@ button{
     width: 300px;
     height: 300px;
 }
-#wordBlock{
+#wordBlock {
     display: grid;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border: 0.09em solid #3f0088;
     margin: 1em;
     align-items: center;
+    grid-auto-columns: 1fr;
 }
 .letters{
     font-size: 2em;
     font-family: 'Caveat', cursive;
     opacity: 0;
 }
+.alph{
+    cursor: pointer;
+    color: #3f0088;
+    border: 0.09em solid #3f0088;
+    border-radius:1em;
+    font-family: 'Caveat', cursive;
+    font-size: 2em;
+    background-color: rgba(255,255,255,0.5);}

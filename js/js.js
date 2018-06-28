@@ -55,12 +55,13 @@ $('#start').click(function () {
         game.append(appendToGame);
 
         var wordBlock=$('#wordBlock');
-        var wordLenght=word.length;
         word=data[1].words_value.split('');
         word.forEach(function (item) {
             letters+= '<div class="letters">'+item+'</div>';
         });
         wordBlock.append(letters);
+        var wordLenght=word.length;
+        alert(wordLenght);
         wordBlock.css('grid-template-columns','repeat('+wordLenght+', 1fr)');
         $('#category').text('Категория: '+data[0].categories_name);
         $('#mistakes').text('Ошибок: '+mistakes);
