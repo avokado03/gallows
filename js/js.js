@@ -1,19 +1,19 @@
-/**
- * Created by hz on 23.06.2018.
- */
-
-//очистка input
+//clear input
 $('#reset').click(function () {
     $('#name').text("");
 });
-//старт игры
+//start game
 $('#start').click(function () {
     var name = $('input').val();
-    var mistakes=0;
-
+    //check the name
     if (name!=""){
+    // if the name is correct, set name into database and get random
+    // category and random word
     $.post('getWords.php',{'name':name},function (data){
         $('body').css('background', 'url(images/backClean.png)');
+
+        // set the alphabet block and other blocks with a word, a category and
+        // count of mistakes
         var alph = "абвгдежзиклмнопрстуфхцчшщъыьэюя".split('');
         var alphDiv="";
         var alphCurrent;
@@ -28,7 +28,6 @@ $('#start').click(function () {
             '<div id="category"></div>'+
             '<div id="mistakes"></div>'+
             '</div>';
-
         content.empty();
         alph.forEach(function (item) {
             alphDiv += '<div class="alph">' + item + '</div>';
@@ -42,18 +41,8 @@ $('#start').click(function () {
             'grid-gap': '0.4em 1.5em'
         });
 
-        alphCurrent=$('.alph');
-        alphCurrent.one('click',function () {
-            var chosenLetter = $(this).text();
-            $('.letters').each(function () {
-                if(chosenLetter==$(this).text()){
-                    $(this).css('opacity','100%');
-                }
-            });
-            $(this).fadeTo(500,0.4);
-        });
+        //fill the base block of the game
         game.append(appendToGame);
-
         var wordBlock=$('#wordBlock');
         word=data[1].words_value.split('');
         word.forEach(function (item) {
@@ -61,11 +50,31 @@ $('#start').click(function () {
         });
         wordBlock.append(letters);
         var wordLenght=word.length;
-        alert(wordLenght);
-        wordBlock.css('grid-template-columns','repeat('+wordLenght+', 1fr)');
-        $('#category').text('Категория: '+data[0].categories_name);
-        $('#mistakes').text('Ошибок: '+mistakes);
+        wordBlock.css('grid-template-columns','repeat('+wordLenght+', 30px)');
+        $('#category').html('Категория: '+data[0].categories_name+'<br>'+'Букв: '+wordLenght);
+        $('#mistakes').text('Ошибок: 0');
 
+        //check chosen letter in the word
+        alphCurrent=$('.alph');
+        alphCurrent.one('click',function () {
+            var chosenLetter = $(this).text();
+            var mistakes=0;
+            var flag=false;
+            $('.letters').each(function () {
+                if(chosenLetter===$(this).text()){
+                    $(this).css('opacity','1');
+                    flag=true;
+                }
+            });
+            if(!flag){
+                mistakes+=1;
+                $('#mistakes').text('Ошибок: '+mistakes);
+            }
+            $(this).fadeTo(500,0.4);
+            if(mistakes==6){
+                alert("game over");
+            }
+        });
     },'json');
     }
     else {
