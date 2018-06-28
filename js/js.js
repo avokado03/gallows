@@ -44,11 +44,10 @@ $('#start').click(function () {
 
         alphCurrent=$('.alph');
         alphCurrent.one('click',function () {
-            var chosenLetter = this.innerText;
-
-            $('.letters').forEach(function (item) {
-                if(chosenLetter===item.innerText){
-                    item.css('opacity','100%');
+            var chosenLetter = $(this).text();
+            $('.letters').each(function () {
+                if(chosenLetter==$(this).text()){
+                    $(this).css('opacity','100%');
                 }
             });
             $(this).fadeTo(500,0.4);
@@ -64,7 +63,7 @@ $('#start').click(function () {
         wordBlock.append(letters);
         wordBlock.css('grid-template-columns','repeat('+wordLenght+', 1fr)');
         $('#category').text('Категория: '+data[0].categories_name);
-        $('#mistakes').text('Ошибок: '+counter);
+        $('#mistakes').text('Ошибок: '+mistakes);
 
     },'json');
     }
