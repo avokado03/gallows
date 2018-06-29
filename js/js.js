@@ -14,13 +14,12 @@ $('#start').click(function () {
 
         // set the alphabet block and other blocks with a word, a category and
         // count of mistakes
+        var mistakes = 0;
         var alph = "абвгдежзиклмнопрстуфхцчшщъыьэюя".split('');
-        var alphDiv="";
         var alphCurrent;
         var word = "";
         var game=$('#game');
         var content = $("#content");
-        var letters="";
         var appendToGame=
             '<div id="image"></div>' +
             '<div id="word">' +
@@ -30,9 +29,8 @@ $('#start').click(function () {
             '</div>';
         content.empty();
         alph.forEach(function (item) {
-            alphDiv += '<div class="alph">' + item + '</div>';
+            content.append('<div class="alph">' + item + '</div>');
         });
-        content.append(alphDiv);
         content.css({
             'padding':'1em',
             'display':'grid',
@@ -46,9 +44,8 @@ $('#start').click(function () {
         var wordBlock=$('#wordBlock');
         word=data[1].words_value.split('');
         word.forEach(function (item) {
-            letters+= '<div class="letters">'+item+'</div>';
+            wordBlock.append('<div class="letters">'+item+'</div>');
         });
-        wordBlock.append(letters);
         var wordLenght=word.length;
         wordBlock.css('grid-template-columns','repeat('+wordLenght+', 30px)');
         $('#category').html('Категория: '+data[0].categories_name+'<br>'+'Букв: '+wordLenght);
@@ -66,9 +63,8 @@ $('#start').click(function () {
                     flag=true;
                 }
             });
-            if(flag){
-                mistake+=1;
-                $('#mistakes').text('Ошибок: '+mistake);
+            if(!flag){
+                $('#mistakes').text('Ошибок: '+(++mistakes));
                 $('#image').css('background-image','url(images/'+mistake+'.png');
                 flag=false;
             }
