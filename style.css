@@ -58,7 +58,7 @@ button{
     grid-template-rows: 1fr 1fr 1fr;
 }
 #image{
-    background-image: url("images/fullHuman.png");
+    background-image: url("images/1.png");
     background-size: cover;
     margin-left: 2em;
     min-width: 200px;

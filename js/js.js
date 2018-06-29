@@ -58,7 +58,7 @@ $('#start').click(function () {
         alphCurrent=$('.alph');
         alphCurrent.one('click',function () {
             var chosenLetter = $(this).text();
-            var mistakes=0;
+            var mistake=0;
             var flag=false;
             $('.letters').each(function () {
                 if(chosenLetter===$(this).text()){
@@ -66,12 +66,14 @@ $('#start').click(function () {
                     flag=true;
                 }
             });
-            if(!flag){
-                mistakes+=1;
-                $('#mistakes').text('Ошибок: '+mistakes);
+            if(flag){
+                mistake+=1;
+                $('#mistakes').text('Ошибок: '+mistake);
+                $('#image').css('background-image','url(images/'+mistake+'.png');
+                flag=false;
             }
             $(this).fadeTo(500,0.4);
-            if(mistakes==6){
+            if(mistake==7){
                 alert("game over");
             }
         });

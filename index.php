@@ -11,7 +11,6 @@
     <div id="main">
         <p id="head">Виселица</p>
         <div id="game">
-            
         </div>
         <div id="content">
                 <p>Введите свое имя :</p>
@@ -20,6 +19,7 @@
                 <button id="reset">Очистить</button>
         </div>
     </div>
+    <div id = "result"></div>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/js.js"></script>
 </body>
