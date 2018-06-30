@@ -55,10 +55,10 @@ $('#start').click(function () {
         $('#mistakes').text('Ошибок: 0');
 
         //check chosen letter in the word
+        var mistake=0;
         alphCurrent=$('.alph');
         alphCurrent.one('click',function () {
             var chosenLetter = $(this).text();
-            var mistake=0;
             var flag=false;
             $('.letters').each(function () {
                 if(chosenLetter===$(this).text()){
@@ -66,9 +66,8 @@ $('#start').click(function () {
                     flag=true;
                 }
             });
-            if(flag){
-                mistake+=1;
-                $('#mistakes').text('Ошибок: '+mistake);
+            if(!flag){
+                $('#mistakes').text('Ошибок: '+(++mistake));
                 $('#image').css('background-image','url(images/'+mistake+'.png');
                 flag=false;
             }
