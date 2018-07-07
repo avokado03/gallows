@@ -2,7 +2,8 @@
 font-family: 'Caveat', cursive;
 font-family: 'Pacifico', cursive;
 */
-body{
+
+body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -10,54 +11,64 @@ body{
     background-image: url(images/back.png);
     background-size: cover;
 }
-#main{
+
+#main {
     display: grid;
     grid-template-rows: 0.5fr 1.8fr 1fr;
     align-items: center;
 }
-#main *{
+
+#main * {
     text-align: center;
 }
-p{
+
+p {
     font-size: 2em;
     font-family: 'Pacifico', cursive;
     color: #3f0088;
     margin: 0;
     padding: 0;
 }
-#head{
+
+#head {
     font-size: 3.8em;
 }
-form{
+
+form {
     display: block;
 }
-input{
+
+input {
     width: 20em;
     font: 1.7em 'Caveat', cursive;
     margin-top: 0.1em;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border: 0.09em solid #3f0088;
 }
-button{
+
+button {
     margin: 1em;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border: 0.1em solid #3f0088;
     border-radius: 1em;
     font-family: 'Caveat', cursive;
     font-size: 1.7em;
     color: #3f0088;
 }
-#game{
+
+#game {
     margin: 0;
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
     grid-template-rows: 1fr;
 }
-#word{
+
+#word {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
 }
-#image{
+
+#image {
     background-image: url("images/1.png");
     background-size: cover;
     margin-left: 2em;
@@ -66,30 +77,47 @@ button{
     width: 300px;
     height: 300px;
 }
+
 #wordBlock {
-    display: grid;
+    display: flex;
     background-color: rgba(255, 255, 255, 0.5);
     border: 0.09em solid #3f0088;
     margin: 1em;
-    align-items: center;
     justify-content: center;
+    align-content: center;
 }
-.letters{
+
+#wordBlock>* {
+    margin: 5px;
+}
+
+.letters {
     font-size: 3em;
     font-family: 'Caveat', cursive;
     opacity: 0;
 }
-.alph{
+
+.alph {
     cursor: pointer;
     color: #3f0088;
     border: 0.09em solid #3f0088;
-    border-radius:1em;
+    border-radius: 1em;
     font-family: 'Caveat', cursive;
     font-size: 2em;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
 }
-#category,#mistakes{
+
+#category,
+#mistakes {
     font-size: 3em;
     font-family: 'Caveat', cursive;
     color: #3f0088;
+}
+
+.content {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 0.4em 1.5em;
 }
